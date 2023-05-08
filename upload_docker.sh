@@ -12,4 +12,5 @@ echo "Docker ID and Image: $dockerpath"
 docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
 # Step 3: Push image to a docker repository
-docker push $dockerpath
+docker image tag 05_project_capstone $dockerpath:latest
+docker image push $dockerpath
