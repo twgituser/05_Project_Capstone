@@ -34,7 +34,7 @@ jobs:
       - run:
           name: push docker container
           command: |
-            sh update_docker.sh
+            sh upload_docker.sh
 workflows:
   default:
     jobs:
