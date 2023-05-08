@@ -20,8 +20,19 @@ jobs:
           command: |
             . ~/.venv/bin/activate
             make lint
-
+  build_docker:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: build docker
+          command: |
+            sh run_docker.sh
+            sh upload_docker.sh
 workflows:
   default:
     jobs:
       - setup
+      - build_docker:
+          requires: [setup]
