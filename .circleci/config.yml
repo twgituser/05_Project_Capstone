@@ -22,7 +22,7 @@ jobs:
             make lint
   build_docker:
     docker:
-      - image: cimg/base:stable
+      - image: docker:latest
     steps:
       - checkout
       - run:
