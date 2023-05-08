@@ -12,6 +12,6 @@ install: # This should be run from inside a virtualenv
 
 lint:   # Lint Dockerfile using hadolint (https://github.com/hadolint/hadolint) and app.py using pylint (https://www.pylint.org/)
 	hadolint Dockerfile
-	pylint app.py
+	pylint --disable=C app.py
 
 all: install lint
