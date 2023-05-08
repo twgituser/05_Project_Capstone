@@ -8,8 +8,7 @@ dockerpath=twdockeruser/05_project_capstone
 
 # Step 2: Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
-docker login --u twdockeruser --password $docker_password
-docker tag 05_project_capstone $dockerpath
+cat .dh_token.txt | docker login --username=twdockeruser --password-stdin
 
 # Step 3: Push image to a docker repository
 docker push $dockerpath
