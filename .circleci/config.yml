@@ -21,10 +21,12 @@ jobs:
             . ~/.venv/bin/activate
             make lint
   build_docker:
+    working_directory: /app
     docker:
       - image: docker:latest
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: build docker
           command: |
