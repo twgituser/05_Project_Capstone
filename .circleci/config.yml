@@ -75,6 +75,7 @@ jobs:
             eksctl version
             aws --version
             kubectl version --short --client
+            aws sts get-caller-identity
 workflows:
   default:
     jobs:
