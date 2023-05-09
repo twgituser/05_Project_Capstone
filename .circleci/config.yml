@@ -97,7 +97,7 @@ jobs:
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
-          resource-file-path: deploy-green.json
+          resource-file-path: deploy-green.yml
           resource-name: deployment/capstone-app
       - run:
           name: checking deployment
