@@ -12,21 +12,21 @@
      "selector":{
         "matchLabels":{
            "app":"capstone-app",
-           "version":"2.0"
+           "version":"1.0"
         }
      },
      "template":{
         "metadata":{
            "labels":{
               "app":"capstone-app",
-              "version":"2.0"
+              "version":"1.0"
            }
         },
         "spec":{
            "containers":[
               {
                  "name":"capstone-app",
-                 "image":"twdockeruser/capstone-app:2.0",
+                 "image":"twdockeruser/capstone-app",
                  "ports":[
                     {
                        "name":"http-server",
