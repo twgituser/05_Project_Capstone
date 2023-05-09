@@ -15,6 +15,15 @@ commands:
             curl -sLO "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
             tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
             sudo mv /tmp/eksctl /usr/local/bin
+  install_awscli:
+    description: Install AWS CLI
+    steps:
+      - run:
+          name: Install AWS CLI
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
 
 jobs:
   setup:
@@ -58,6 +67,7 @@ jobs:
     steps:
       - checkout
       - install_eksctl  
+      - install_aws_cli
       - run:
           name: Create AWS EKS Cluster
           command: |    
