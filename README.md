@@ -15,9 +15,9 @@
 - Screenshots: https://github.com/twgituser/05_Project_Capstone/tree/main/screenshots
 
 ## Pre-requisites 
-The below Environments need to be added to Circle CI project:
-- AWS_ACCESS_KEY_ID
+The below Environments need to be added to CircleCI project:
 - AWS_DEFAULT_REGION
+- AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
 - DOCKER_USER
 - DOCKER_PASSWORD
