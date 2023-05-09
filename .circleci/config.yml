@@ -68,6 +68,7 @@ jobs:
       - checkout
       - install_eksctl  
       - install_awscli
+      - kubernetes/install
       - run:
           name: Create AWS EKS Cluster
           command: |    
