@@ -61,10 +61,9 @@ jobs:
       - run:
           name: Create AWS EKS Cluster
           command: |    
-            eksctl create cluster \
-              --name 05-capstone-${CIRCLE_WORKFLOW_ID:0:7} \
-              --region ${AWS_DEFAULT_REGION}
-              --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d
+            eksctl version
+            aws --version
+            kubectl version --short --client
 workflows:
   default:
     jobs:
