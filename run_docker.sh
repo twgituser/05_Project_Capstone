@@ -8,4 +8,4 @@ docker image list
 
 # Step 3: Run flask app
 # suppressed to deploy to circleci
-# docker run --publish 8000:80 05_project_capstone
+# docker run --publish 8000:80 capstone-app
