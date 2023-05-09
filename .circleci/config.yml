@@ -99,7 +99,17 @@ jobs:
           get-rollout-status: true
           resource-file-path: deployment.json
           resource-name: deployment/capstone-app
-
+      - run:
+          name: checking deployment
+          command: | 
+              echo "OUTPUTS............."
+              kubectl config view 
+              kubectl describe deployment capstone-app
+              kubectl get deployments
+              kubectl get svc
+              kubectl get nodes
+              kubectl get pods
+                                      
 workflows:
   default:
     jobs:

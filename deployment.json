@@ -26,7 +26,7 @@
            "containers":[
               {
                  "name":"capstone-app",
-                 "image":"twdockeruser/capstone-app",
+                 "image":"twdockeruser/capstone-app:1.0",
                  "ports":[
                     {
                        "name":"http-server",
