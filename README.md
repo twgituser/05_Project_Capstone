@@ -16,4 +16,6 @@ Udacity Project 05
 https://circleci.com/developer/orbs/orb/circleci/aws-eks
 https://github.com/CircleCI-Public/aws-eks-orb
 https://eksctl.io/introduction/
+https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
+
 

@@ -2,22 +2,24 @@
   "kind":"Deployment",
   "apiVersion":"apps/v1",
   "metadata":{
-     "name":"05capstone",
+     "name":"app",
      "labels":{
-        "app":"05capstone"
+        "app":"app"
      }
   },
   "spec":{
      "replicas":2,
      "selector":{
         "matchLabels":{
-           "app":"05capstone"
+           "app":"app",
+           "version":"1.0"
         }
      },
      "template":{
         "metadata":{
            "labels":{
-              "app":"05capstone"
+              "app":"app",
+              "version":"1.0"
            }
         },
         "spec":{
