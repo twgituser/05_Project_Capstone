@@ -75,7 +75,7 @@ jobs:
             eksctl create cluster \
               --name capstone-app-${CIRCLE_WORKFLOW_ID:0:7} \
               --region ${AWS_DEFAULT_REGION} \
-              --zones us-east-2a,us-east-2b
+              --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d
 
   create-service:
     executor: aws-eks/python3
@@ -97,7 +97,7 @@ jobs:
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
-          resource-file-path: deploy-green.json
+          resource-file-path: deployment.json
           resource-name: deployment/capstone-app
       - run:
           name: checking deployment

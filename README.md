@@ -1,6 +1,7 @@
 # 05_Project_Capstone
 
 Udacity Project Capstone
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/twgituser/05_Project_Capstone/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/twgituser/05_Project_Capstone/tree/main)
 
 ### Pipeline
 

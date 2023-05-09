@@ -1,0 +1,25 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app
+      version: '1.0'
+  template:
+    metadata:
+      labels:
+        app: app
+        version: '1.0'
+    spec:
+      containers:
+      - name: capstone-app
+        image: twdockeruser/capstone-app:1.0
+        ports:
+        - name: http-server
+          containerPort: 80

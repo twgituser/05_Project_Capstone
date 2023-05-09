@@ -4,7 +4,7 @@
 # Assumes that an image is built via `run_docker.sh`
 
 # Step 1: Create dockerpath
-dockerpath=twdockeruser/capstone-app:1.0
+dockerpath=twdockeruser/capstone-app:2.0
 
 # Step 2: Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
