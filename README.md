@@ -1,6 +1,6 @@
 # 05_Project_Capstone
 
-Udacity Project 05
+Udacity Project Capstone
 
 ### Pipeline
 
