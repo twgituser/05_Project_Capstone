@@ -16,11 +16,11 @@
 
 ## Pre-requisites 
 The below Environments need to be added to Circle CI project:
-AWS_ACCESS_KEY_ID
-AWS_DEFAULT_REGION
-AWS_SECRET_ACCESS_KEY
-DOCKER_LOGIN
-DOCKER_PASSWORD
+- AWS_ACCESS_KEY_ID
+- AWS_DEFAULT_REGION
+- AWS_SECRET_ACCESS_KEY
+- DOCKER_USER
+- DOCKER_PASSWORD
 
 ## Pipeline
 
@@ -33,8 +33,8 @@ DOCKER_PASSWORD
 
 ## Resource links 
 
-https://circleci.com/developer/orbs/orb/circleci/aws-eks
-https://github.com/CircleCI-Public/aws-eks-orb
-https://eksctl.io/introduction/
-https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
+- https://circleci.com/developer/orbs/orb/circleci/aws-eks
+- https://github.com/CircleCI-Public/aws-eks-orb
+- https://eksctl.io/introduction/
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
 
