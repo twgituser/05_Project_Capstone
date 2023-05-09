@@ -62,7 +62,7 @@ jobs:
           name: Create AWS EKS Cluster
           command: |    
             eksctl create cluster \
-              --name 05_capstone-${CIRCLE_WORKFLOW_ID:0:7} \
+              --name 05-capstone-${CIRCLE_WORKFLOW_ID:0:7} \
               --region ${AWS_DEFAULT_REGION}
 workflows:
   default:
