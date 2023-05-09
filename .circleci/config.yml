@@ -87,6 +87,7 @@ jobs:
       - kubernetes/create-or-update-resource:
           resource-file-path: service.json
           resource-name: service/capstone-applb
+      
 
   create-deployment:
     executor: aws-eks/python3
