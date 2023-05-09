@@ -66,17 +66,16 @@ jobs:
     executor: aws-eks/python3
     steps:
       - checkout
-      - install_eksctl  
       - install_awscli
+      - install_eksctl  
       - kubernetes/install-kubectl
       - run:
           name: Create AWS EKS Cluster
           command: |    
-            eksctl version
-            aws --version
-            kubectl version --client
-            sudo apt-get update && sudo apt-get install -yy less
-            aws sts get-caller-identity
+            eksctl create cluster \
+              --name 05-capstone-${CIRCLE_WORKFLOW_ID:0:7} \
+              --region ${AWS_DEFAULT_REGION} \
+              --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d
 workflows:
   default:
     jobs:
