@@ -76,11 +76,37 @@ jobs:
               --name 05-capstone-${CIRCLE_WORKFLOW_ID:0:7} \
               --region ${AWS_DEFAULT_REGION} \
               --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d
+
+  create-service:
+    executor: aws-eks/python3
+    steps:
+      - checkout
+      - aws-eks/update-kubeconfig-with-authenticator:
+          cluster-name: eksctl-05-capstone-f48b391-cluster
+          install-kubectl: true
+      - kubernetes/create-or-update-resource:
+          resource-file-path: service.json
+          resource-name: service/05capstonelb
+
+  create-deployment:
+    executor: aws-eks/python3
+    steps:
+      - checkout
+      - aws-eks/update-kubeconfig-with-authenticator:
+          cluster-name: eksctl-05-capstone-f48b391-cluster
+          install-kubectl: true
+      - kubernetes/create-or-update-resource:
+          get-rollout-status: true
+          resource-file-path: deployment.json
+          resource-name: deployment/05capstone
+
 workflows:
   default:
     jobs:
-      - setup
-      - build_docker:
-          requires: [setup]
-      - create-cluster:
-          requires: [build_docker]
+      - create-service
+      - create-deployment
+      # - setup
+      # - build_docker:
+      #     requires: [setup]
+      # - create-cluster:
+      #     requires: [build_docker]
