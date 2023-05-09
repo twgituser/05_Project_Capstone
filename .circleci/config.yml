@@ -68,14 +68,13 @@ jobs:
       - checkout
       - install_eksctl  
       - install_awscli
-      - kubernetes/install
+      - kubernetes/install-kubectl
       - run:
           name: Create AWS EKS Cluster
           command: |    
             eksctl version
             aws --version
             kubectl version --client
-            aws configure
             aws sts get-caller-identity
 workflows:
   default:
