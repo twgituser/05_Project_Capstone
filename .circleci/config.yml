@@ -82,7 +82,7 @@ jobs:
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: eksctl-05-capstone-f48b391-cluster
+          cluster-name: 05-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           resource-file-path: service.json
@@ -93,7 +93,7 @@ jobs:
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: eksctl-05-capstone-f48b391-cluster
+          cluster-name: 05-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
@@ -103,10 +103,12 @@ jobs:
 workflows:
   default:
     jobs:
-      - create-service
-      - create-deployment
-      # - setup
-      # - build_docker:
-      #     requires: [setup]
-      # - create-cluster:
-      #     requires: [build_docker]
+      - setup
+      - build_docker:
+          requires: [setup]
+      - create-cluster:
+          requires: [build_docker]
+      - create-service:
+          requires: [create-cluster]
+      - create-deployment:
+          requires: [create-service]
