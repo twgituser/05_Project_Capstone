@@ -10,3 +10,10 @@ Udacity Project 05
 - Deploy Cluster
 - Run Tests
 - Clean Up
+
+## Resource links 
+
+https://circleci.com/developer/orbs/orb/circleci/aws-eks
+https://github.com/CircleCI-Public/aws-eks-orb
+https://eksctl.io/introduction/
+

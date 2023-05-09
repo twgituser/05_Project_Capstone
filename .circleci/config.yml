@@ -1,4 +1,20 @@
 version: 2.1
+
+orbs: 
+  aws-eks: circleci/aws-eks@1.1.0
+  kubernetes: circleci/kubernetes@1.3
+
+commands:
+  install_eksctl:
+    description: Install eksctl
+    steps:
+      - run:
+          name: Install eksctl
+          command: |
+            PLATFORM=$(uname -s)_amd64
+            curl -sLO "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+            sudo mv /tmp/eksctl /usr/local/bin
+
 jobs:
   setup:
     docker:
@@ -35,9 +51,23 @@ jobs:
           name: push docker container
           command: |
             sh upload_docker.sh
+
+  create-cluster:
+    executor: aws-eks/python3
+    steps:
+      - checkout
+      - install_eksctl  
+      - run:
+          name: Create AWS EKS Cluster
+          command: |    
+            eksctl create cluster \
+              --name 05_capstone-${CIRCLE_WORKFLOW_ID:0:7} \
+              --region ${AWS_DEFAULT_REGION}
 workflows:
   default:
     jobs:
       - setup
       - build_docker:
           requires: [setup]
+      - create-cluster:
+          requires: [build_docker]
