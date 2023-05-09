@@ -2,31 +2,31 @@
   "kind":"Deployment",
   "apiVersion":"apps/v1",
   "metadata":{
-     "name":"app",
+     "name":"capstone-app",
      "labels":{
-        "app":"app"
+        "app":"capstone-app"
      }
   },
   "spec":{
      "replicas":2,
      "selector":{
         "matchLabels":{
-           "app":"app",
+           "app":"capstone-app",
            "version":"1.0"
         }
      },
      "template":{
         "metadata":{
            "labels":{
-              "app":"app",
+              "app":"capstone-app",
               "version":"1.0"
            }
         },
         "spec":{
            "containers":[
               {
-                 "name":"05_project_capstone",
-                 "image":"twdockeruser/05_project_capstone",
+                 "name":"capstone-app",
+                 "image":"twdockeruser/capstone-app",
                  "ports":[
                     {
                        "name":"http-server",

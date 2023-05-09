@@ -73,7 +73,7 @@ jobs:
           name: Create AWS EKS Cluster
           command: |    
             eksctl create cluster \
-              --name 05-capstone-${CIRCLE_WORKFLOW_ID:0:7} \
+              --name capstone-app-${CIRCLE_WORKFLOW_ID:0:7} \
               --region ${AWS_DEFAULT_REGION} \
               --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d
 
@@ -82,23 +82,23 @@ jobs:
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: 05-capstone-${CIRCLE_WORKFLOW_ID:0:7}
+          cluster-name: capstone-app-${CIRCLE_WORKFLOW_ID:0:7}
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           resource-file-path: service.json
-          resource-name: service/05capstonelb
+          resource-name: service/capstone-applb
 
   create-deployment:
     executor: aws-eks/python3
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: 05-capstone-${CIRCLE_WORKFLOW_ID:0:7}
+          cluster-name: capstone-app-${CIRCLE_WORKFLOW_ID:0:7}
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
           resource-file-path: deployment.json
-          resource-name: deployment/05capstone
+          resource-name: deployment/capstone-app
 
 workflows:
   default:

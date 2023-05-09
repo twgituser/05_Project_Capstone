@@ -2,9 +2,9 @@
   "kind":"Service",
   "apiVersion":"v1",
   "metadata":{
-     "name":"app",
+     "name":"capstone-app",
      "labels":{
-        "app":"app"
+        "app":"capstone-app"
      }
   },
   "spec":{
@@ -15,7 +15,8 @@
         }
      ],
      "selector":{
-        "app":"app"
+        "app":"capstone-app",
+        "version":"1.0"
      },
      "type": "LoadBalancer"
   }

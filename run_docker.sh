@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Step 1: Build image and add a descriptive tag
-docker build --tag 05_project_capstone .
+docker build --tag capstone-app .
 
 # Step 2: List docker images
 docker image list
